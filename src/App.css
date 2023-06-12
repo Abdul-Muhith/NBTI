@@ -40,3 +40,28 @@
 .read-the-docs {
   color: #888;
 } */
+
+
+
+
+
+
+/* Style Sheet */
+/* 
+.style {
+  background: '#563D7C';
+  color: '#95C1F3';
+  font-weight: 'bold';
+  width: '50%';
+  margin: 'auto';
+  padding: '0.6rem';
+  text-align: 'center'
+}
+
+h1 {
+  color: red;
+} */
+
+.container {
+  width: 80%;
+}
