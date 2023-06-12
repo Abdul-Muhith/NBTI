@@ -3,7 +3,8 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
-import Registration from './components/registrations'
+
+import Routes from './routes'
 
 // const style = {
 //   background: '#563D7C',
@@ -17,13 +18,12 @@ import Registration from './components/registrations'
 
 function App() {
   return (
-    <div className="container">
+    <div className="row">
       {/* <div style={style}>
         <h1 style={{ color: 'white' }}>N B T I</h1>
         <small>Nishi Banu To Islam</small>
       </div> */}
-      {/* Student Registration */}
-      <Registration />
+      <Routes />
     </div>
   )
 }
