@@ -5,7 +5,7 @@ import Navbar from '../layout/Navbar'
 // pages
 import Error from '../pages/error'
 import Office from '../pages/office'
-import OfficeButtons from '../pages/office/OfficeButtons'
+import Registrations from '../pages/office/Registrations'
 
 export default function index() {
     return (
@@ -13,7 +13,7 @@ export default function index() {
             <Navbar />
             <Routes>
                 <Route path='/office' element={<Office />} />
-                <Route path='/office/:officeButton' element={<OfficeButtons />} />
+                <Route path='/office/:register' element={<Registrations />} />
                 <Route path='/*' element={<Error />} />
             </Routes>
         </BrowserRouter>

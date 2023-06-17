@@ -66,6 +66,42 @@ h1 {
   width: 80%;
 }
 
+.bgOne {
+  background-color: #fc6d26;
+}
+
+.bgOne:hover {
+  background-color: #FF8547;
+}
+
+.bgTwo {
+  background-color: #4c9aff;
+}
+
+.bgTwo:hover {
+  background-color: #80B7FF;
+}
+
+.bgThree {
+  background-color: #4eb2ff;
+}
+
+.bgThree:hover {
+  background-color: #81C8FF;
+}
+
+.bgFour {
+  background-color: #d1d5da;
+}
+
+.bgFour:hover {
+  background-color: #F6F8FA;
+}
+
+.bgFive {
+  background-color: #12181F;
+}
+
 @media screen and (min-width: 992px) {}
 
 @media screen and (min-width: 768px) {}
