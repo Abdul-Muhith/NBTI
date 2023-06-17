@@ -4,7 +4,6 @@ import CPform from '../../components/office/form/CPform'
 export default function CourseName() {
     const [courseName, setCourseName] = useState('')
     const handleClick = (event) => {
-        // courseName = ''
         setCourseName(event.target.value)
     }
 
@@ -29,6 +28,7 @@ export default function CourseName() {
                 </div>
             </div>
         </div>
+
         {courseName === 'CP' && <CPform />}
     </>)
 }
