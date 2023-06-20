@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import CPform from '../../components/office/form/CPform'
+import CPform from '../registrations/form/CPform'
 
 export default function CourseName() {
     const [courseName, setCourseName] = useState('')
+
     const handleClick = (event) => {
         setCourseName(event.target.value)
     }

@@ -1,16 +1,14 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-import { useParams } from 'react-router-dom'
-import './office.css'
+import React from 'react'
+import { Link, useParams } from 'react-router-dom'
 
-import CourseName from './CourseName'
+import CourseNameRadio from '../../components/courses/CourseNameRadio'
 
 export default function OfficeButtons() {
     const { register } = useParams()
 
     return (<>
         <div className="col-md-12 col-lg-6 mb-3">
-            <div className="d-flex border py-3 px-2">
+            <div className="d-flex">
                 <div>
                     <div className="top-left-btn">
                         <Link to='/office/register' className="bgFour btn mb-1">Register</Link>
@@ -32,7 +30,7 @@ export default function OfficeButtons() {
 
         <div className="col-md-12 col-lg-6 mb-3">
             <div className="border py-3 px-2">
-                {register === 'register' && <CourseName />}
+                {register === 'register' && <CourseNameRadio />}
                 {register === 'payment' && <h1>Comming Soon<strong> Payment</strong></h1>}
                 {register === 'others' && <h1>Comming Soon<strong> Others</strong></h1>}
             </div>

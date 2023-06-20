@@ -5,7 +5,9 @@ import Navbar from '../layout/Navbar'
 // pages
 import Error from '../pages/error'
 import Office from '../pages/office'
-import Registrations from '../pages/office/Registrations'
+import Registrations from '../pages/students'
+import Contact from '../pages/contact'
+
 import CommingSoon from '../pages/error/CommingSoon'
 
 export default function index() {
@@ -14,10 +16,10 @@ export default function index() {
             <Navbar />
             <Routes>
                 <Route path='/office' element={<Office />} />
-                <Route path='/courses' element={<CommingSoon />} />
-                <Route path='/contact' element={<CommingSoon />} />
-                <Route path='/about' element={<CommingSoon />} />
                 <Route path='/office/:register' element={<Registrations />} />
+                <Route path='/contact' element={<Contact />} />
+                <Route path='/courses' element={<CommingSoon />} />
+                <Route path='/about' element={<CommingSoon />} />
                 <Route path='/*' element={<Error />} />
             </Routes>
         </BrowserRouter>
