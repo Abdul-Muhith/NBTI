@@ -9,8 +9,8 @@ export default function CourseName() {
     }
 
     return (<>
-        <div className="mx-auto d-block" style={{ width: '90%' }}>
-            <div className="form-group mb-3 d-flex">
+        <div className="w-100 mx-auto d-block border py-3 px-2 mb-3">
+            <div className="form-group d-flex" style={{ justifyContent: 'center' }}>
                 <div className="form-check me-3">
                     <input onClick={handleClick} value='LMAF' className="form-check-input" type="radio" name='courses' id="gridCheck" />
                     <label className="form-check-label" htmlFor="gridCheck">LMAF</label>
@@ -28,8 +28,8 @@ export default function CourseName() {
                     <label className="form-check-label" htmlFor="gridCheck">Private</label>
                 </div>
             </div>
-        </div>
 
-        {courseName === 'CP' && <CPform />}
+            {courseName === 'CP' && <CPform />}
+        </div>
     </>)
 }

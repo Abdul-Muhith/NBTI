@@ -10,13 +10,9 @@ export default function index() {
     const { register } = useParams()
 
     return (
-        <div className="col-md-12 col-lg-6 mb-3">
-            <div className="border py-3 px-2">
-                <StudentStore>
-                    {register === undefined && < Students />}
-                    {register !== undefined && < StudentRegistrations />}
-                </StudentStore>
-            </div>
-        </div>
+        <StudentStore>
+            {register === undefined && < Students />}
+            {register !== undefined && < StudentRegistrations />}
+        </StudentStore>
     )
 }

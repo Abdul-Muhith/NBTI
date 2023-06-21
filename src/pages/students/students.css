@@ -1,0 +1,23 @@
+.display-office {
+    display: block;
+}
+
+@media screen and (min-width: 992px) {
+    .display-office {
+        display: flex;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .display-office {
+        display: flex;
+    }
+
+    .student-container {
+        padding-bottom: 150px;
+    }
+
+    .student-container-title {
+        margin-top: 1rem !important;
+    }
+}

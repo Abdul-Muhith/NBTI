@@ -3,14 +3,16 @@ import { Link } from 'react-router-dom'
 import './Navbar.css'
 
 export default function Navbar() {
-    return (
+    return (<>
+        {/* New navbar desinged here going on */}
         <nav>
+            <Link className='nav-link' to='/home'>Home</Link>
+            <Link className='nav-link' to='/students'>Students</Link>
             <Link className='nav-link' to='/office'>Office</Link>
             <Link className='nav-link' to='/courses'>Courses</Link>
-            <Link className='nav-link' to='/contact'>Contact</Link>
             <Link className='nav-link' to='/about'>About</Link>
         </nav>
-    )
+    </>)
 }
 
 /* <nav class="navbar navbar-expand-lg bg-primary">
