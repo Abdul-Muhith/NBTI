@@ -2,6 +2,19 @@
     display: block;
 }
 
+.studentID {
+    width: 50px;
+    height: 50px;
+    display: block;
+    text-align: center;
+    margin: auto;
+    margin-top: 50%;
+}
+
+.bxx-shadow {
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px 3px;
+}
+
 @media screen and (min-width: 992px) {
     .display-office {
         display: flex;
@@ -12,7 +25,9 @@
     .display-office {
         display: flex;
     }
+}
 
+@media (max-width: 768px) {
     .student-container {
         padding-bottom: 150px;
     }

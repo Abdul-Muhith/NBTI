@@ -105,28 +105,28 @@ export default function Students() {
                     <div className="col-lg-3 mt-5 pt-4 d-none d-lg-block">
                         <div className='p-2 mt-2' style={{ border: '1px solid lightgrey' }}>
                             <h2 className="fs-5 text-center">
-                                Total: {students.length < 9 && '0'}{students.length} Student(s)
+                                Sub Total: 33 Item(s)
                             </h2>
                             <h2 className="fs-5 text-center">
-                                Due: 304500 Taka
+                                Price: 304 Taka
                             </h2>
                         </div>
                         <div style={{ border: '1px solid lightgrey' }} className="py-2">
-                            <button className='btn btn-dark mx-auto d-block'>Make a Payment</button>
+                            <button className='btn btn-dark mx-auto d-block' disabled>Proced to checkout</button>
                         </div>
                     </div>
 
                     <div className="col-lg-3 mt-5 py-3 d-lg-none fixed-bottom bg-brand bxx-shadow">
                         <div className='p-2 mt-2' style={{ border: '1px solid lightgrey' }}>
                             <h2 className="fs-5 text-center">
-                                Total: {students.length < 9 && '0'}{students.length} Student(s)
+                                Sub Total: 33 Item(s)
                             </h2>
                             <h2 className="fs-5 text-center">
-                                Due: 3,04,500 Taka
+                                Price: 304 Taka
                             </h2>
                         </div>
                         <div style={{ border: '1px solid lightgrey' }} className="py-2">
-                            <button className='btn btn-dark mx-auto d-block' disabled>Make a Payment</button>
+                            <button className='btn btn-dark mx-auto d-block'>Proced to checkout</button>
                         </div>
                     </div>
                 </div>
