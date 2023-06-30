@@ -7,19 +7,36 @@ const StudentStore = ({ children }) => {
     const [students, setStudents] = useState(dummyStudents)
 
     const [studentPersonalInformations, setStudentPersonalInformations] = useState({
-        firstNameEN: '',
-        lastNameEN: '',
-        firstNameBN: '',
-        lastNameBN: '',
-        email: '',
-        password: '',
-        addressOne: '',
-        addressTwo: '',
-        city: '',
-        state: '',
-        zipCode: '',
+        fullNameBN: '',
+        fullNameEN: '',
+        fathersNameBN: '',
+        fathersNameEN: '',
+        mothersNameBN: '',
+        mothersNameEN: '',
+        dateOfBirth: '',
         gender: '',
-        mobile: ''
+        nationalIdNumber: '',
+        passportNumber: '',
+        guardiansNameEN: '',
+        relationToGuardian: '',
+        quota: '',
+        nationality: '',
+        religion: '',
+        meritalStatus: '',
+        email: '',
+        mobile: '',
+        preVillage: '',
+        preDivision: '',
+        preDistrict: '',
+        preThana: '',
+        prePostOffice: '',
+        prePostalCode: '',
+        perVillage: '',
+        perDivision: '',
+        perDistrict: '',
+        perThana: '',
+        perPostOffice: '',
+        perPostalCode: ''
     })
 
     return (<>

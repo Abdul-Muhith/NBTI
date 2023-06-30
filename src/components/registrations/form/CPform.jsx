@@ -4,7 +4,7 @@ import PersonalInformations from './StudentsPersonalInformations'
 
 export default function CPform() {
 
-    return (
+    return (<>
         <PersonalInformations />
-    )
+    </>)
 }

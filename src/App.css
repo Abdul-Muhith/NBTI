@@ -86,6 +86,111 @@ body {
   width: 80%;
 }
 
+.header-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.header-description {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.button-brand {
+  width: 186px;
+  height: 64px;
+  background: #FFA00A;
+  border-radius: 12px;
+  border: none;
+  font-weight: bold;
+}
+
+
+.button-signUp {
+  width: 111px;
+  height: 45px;
+  background: #FFEFD6;
+  border-radius: 8px;
+  border: none;
+  margin: 0 5px;
+}
+
+.button-signUp:hover {
+  background: #FFAC29;
+}
+
+/* Find a Program */
+.programs-card {
+  min-height: 229.1px;
+  background: #F9F8F8;
+  border: 1px solid #EAEAEA;
+  border-radius: 16px;
+}
+
+.programs-card:hover {
+  background: white;
+  border: 1px solid #FFA00A;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.programs-apply-btn,
+.programs-details-btn {
+  padding: 12px 24px;
+  width: 115px;
+  height: 50px;
+  border: 1px solid #000000;
+  border-radius: 12px;
+}
+
+.programs-apply-btn:hover,
+.programs-details-btn:hover {
+  background: #FFA00A;
+  border: 1px solid #FFA00A;
+  color: #000000;
+}
+
+.programs-details-btn {
+  width: 165px;
+}
+
+/* Products */
+.products-container {
+  padding: 1rem;
+}
+
+.cart-deck {
+  background-color: white;
+  min-width: 320px;
+  min-height: 350px;
+  border: 2px solid #f2f2f2;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px #f2f2f2;
+}
+
+.cart-img-top {
+  width: 200px;
+  margin: 1rem 0;
+  padding: 10px 0;
+  transition: transform .2s;
+}
+
+.cart-img-top:hover {
+  filter: brightness(0.8);
+  transform: scale(1.2);
+}
+
+.cart-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.cart-text {
+  font-size: 14px;
+  margin: 0.5rem 0;
+}
+
 .bgOne {
   background-color: #fc6d26;
 }
@@ -125,3 +230,18 @@ body {
 @media screen and (min-width: 992px) {}
 
 @media screen and (min-width: 768px) {}
+
+
+@media (max-width: 768px) {
+  .header-title {
+    font-size: 1.5rem;
+  }
+
+  .header-description {
+    font-size: 1rem;
+  }
+
+  .button-brand {
+    width: 100%;
+  }
+}

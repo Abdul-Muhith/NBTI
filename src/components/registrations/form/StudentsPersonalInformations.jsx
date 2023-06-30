@@ -1,18 +1,21 @@
 import React, { useContext } from 'react'
-import { StudentContext } from '../../../services/contexts/StudentContext'
 import { v4 as uuidv4 } from 'uuid'
+import { useNavigate } from 'react-router-dom'
+import { StudentContext } from '../../../services/contexts/StudentContext'
 
 export default function StudentsPersonalInformations() {
+    const navigate = useNavigate()
+
     const {
         students, setStudents,
         studentPersonalInformations, setStudentPersonalInformations
     } = useContext(StudentContext)
 
-    const { firstNameEN, lastNameEN, firstNameBN, lastNameBN, email, password, addressOne, addressTwo, city, state, zipCode, gender, mobile } = studentPersonalInformations
+    const { id, fullNameBN, fullNameEN, fathersNameBN, fathersNameEN, mothersNameBN, mothersNameEN, dateOfBirth, gender, nationalIdNumber, passportNumber, guardiansNameEN, relationToGuardian, quota, nationality, religion, meritalStatus, email, mobile, preVillage, preDivision, preDistrict, preThana, prePostOffice, prePostalCode, perVillage, perDivision, perDistrict, perThana, perPostOffice, perPostalCode } = studentPersonalInformations
 
     const handleChange = (event) => {
         setStudentPersonalInformations({
-            ...studentPersonalInformations,
+            // ...studentPersonalInformations,
             [event.target.name]: event.target.value
         })
     }
@@ -20,27 +23,43 @@ export default function StudentsPersonalInformations() {
     const handleSubmit = (event) => {
         event.preventDefault()
         setStudentPersonalInformations({
-            firstNameEN: '',
-            lastNameEN: '',
-            firstNameBN: '',
-            lastNameBN: '',
+            fullNameBN: '',
+            fullNameEN: '',
+            fathersNameBN: '',
+            fathersNameEN: '',
+            mothersNameBN: '',
+            mothersNameEN: '',
+            dateOfBirth: '',
+            nationalIdNumber: '',
+            passportNumber: '',
+            guardiansNameEN: '',
+            relationToGuardian: '',
+            quota: '',
+            nationality: '',
+            religion: '',
+            meritalStatus: '',
             email: '',
-            password: '',
-            addressOne: '',
-            addressTwo: '',
-            city: '',
-            state: '',
-            zipCode: '',
-            gender: '',
-            mobile: ''
+            mobile: '',
+            preVillage: '',
+            preDivision: '',
+            preDistrict: '',
+            preThana: '',
+            prePostOffice: '',
+            prePostalCode: '',
+            perVillage: '',
+            perDivision: '',
+            perDistrict: '',
+            perThana: '',
+            perPostOffice: '',
+            perPostalCode: ''
         })
+        // { id: uuidv4(), }
+        const newCPstudent = studentPersonalInformations
 
-        const newCPstudent = { id: uuidv4(), studentPersonalInformations }
-        console.log(newCPstudent)
-
-        setStudents([...students, studentPersonalInformations])
+        setStudents([...students, newCPstudent])
         console.log(students)
     }
+    // console.log(students)
 
     return (
         <form onSubmit={handleSubmit}>
@@ -51,79 +70,79 @@ export default function StudentsPersonalInformations() {
             <h3>Personal Information</h3>
 
             <div className="form-group mb-3">
-                <label htmlFor="email">Full Name (Bangla)</label>
+                <label htmlFor="fullNameBN">Full Name (Bangla)</label>
                 <input
                     className="form-control"
                     type="text"
-                    id="email"
-                    name="email"
-                    value={email}
+                    id="fullNameBN"
+                    name="fullNameBN"
+                    value={fullNameBN}
                     onChange={handleChange}
                     placeholder="তোমার নাম লিখ" />
             </div>
             <div className="form-group mb-3">
-                <label htmlFor="email">Full Name (English Capital Letter)</label>
+                <label htmlFor="fullNameEN">Full Name (English Capital Letter)</label>
                 <input
                     className="form-control"
                     type="text"
-                    id="email"
-                    name="email"
-                    value={email}
+                    id="fullNameEN"
+                    name="fullNameEN"
+                    value={fullNameEN}
                     onChange={handleChange}
                     placeholder="Enter Your Name" />
             </div>
             <div className="form-group mb-3">
-                <label htmlFor="email">Father's Name (Bangla)</label>
+                <label htmlFor="fathersNameBN">Father's Name (Bangla)</label>
                 <input
                     className="form-control"
                     type="text"
-                    id="email"
-                    name="email"
-                    value={email}
+                    id="fathersNameBN"
+                    name="fathersNameBN"
+                    value={fathersNameBN}
                     onChange={handleChange}
                     placeholder="পিতার নাম লিখ" />
             </div>
             <div className="form-group mb-3">
-                <label htmlFor="email">Father's Name (English)</label>
+                <label htmlFor="fathersNameEN">Father's Name (English)</label>
                 <input
                     className="form-control"
                     type="text"
-                    id="email"
-                    name="email"
-                    value={email}
+                    id="fathersNameEN"
+                    name="fathersNameEN"
+                    value={fathersNameEN}
                     onChange={handleChange}
                     placeholder="Enter Father's Name" />
             </div>
             <div className="form-group mb-3">
-                <label htmlFor="email">Mother's Name (Bangla)</label>
+                <label htmlFor="mothersNameBN">Mother's Name (Bangla)</label>
                 <input
                     className="form-control"
                     type="text"
-                    id="email"
-                    name="email"
-                    value={email}
+                    id="mothersNameBN"
+                    name="mothersNameBN"
+                    value={mothersNameBN}
                     onChange={handleChange}
                     placeholder="মাতার নাম লিখ" />
             </div>
             <div className="form-group mb-3">
-                <label htmlFor="email">Mother's Name (English)</label>
+                <label htmlFor="mothersNameEN">Mother's Name (English)</label>
                 <input
                     className="form-control"
                     type="text"
-                    id="email"
-                    name="email"
-                    value={email}
+                    id="mothersNameEN"
+                    name="mothersNameEN"
+                    value={mothersNameEN}
                     onChange={handleChange}
                     placeholder="Enter Mother's Name" />
             </div>
             <div className="form-row mb-3 d-flex">
                 <div className="form-group col-md-2">
-                    <label htmlFor="first-name" className='d-block'>Sex (Tick)</label>
+                    <label htmlFor="gender" className='d-block'>Sex (Tick)</label>
                     <div className="form-check me-3">
                         <input
                             className="form-check-input"
                             type="radio"
-                            id="gridCheck"
+                            id="gender"
                             name='gender'
                             value='male'
                             onChange={handleChange}
@@ -134,67 +153,67 @@ export default function StudentsPersonalInformations() {
                         <input
                             className="form-check-input"
                             type="radio"
-                            id="gridCheck"
+                            id="female"
                             name='gender'
                             value='female'
                             onChange={handleChange}
                         />
-                        <label className="form-check-label" htmlFor="gridCheck">Female</label>
+                        <label className="form-check-label" htmlFor="female">Female</label>
                     </div>
                     <div className="form-check me-3">
                         <input
                             className="form-check-input"
                             type="radio"
-                            id="gridCheck"
+                            id="others"
                             name='gender'
                             value='others'
                             onChange={handleChange}
                         />
-                        <label className="form-check-label" htmlFor="gridCheck">Others</label>
+                        <label className="form-check-label" htmlFor="others">Others</label>
                     </div>
                 </div>
 
                 <div className="form-group col-md-6">
-                    <label htmlFor="email">Date of Birth</label>
+                    <label htmlFor="dateOfBirth">Date of Birth</label>
                     <input
                         className="form-control"
                         type="date"
-                        id="email"
-                        name="email"
-                        value={email}
+                        id="dateOfBirth"
+                        name="dateOfBirth"
+                        value={dateOfBirth}
                         onChange={handleChange}
                     />
                 </div>
 
                 <div className="form-group col-md-4">
-                    <label htmlFor="inputState">Nationality</label>
-                    <select onChange={handleChange} name='state' value={state} id="inputState" className="form-control">
-                        <option defaultValue={state}>Choose...</option>
+                    <label htmlFor="nationality">Nationality</label>
+                    <select onChange={handleChange} name='nationality' value={nationality} id="nationality" className="form-control">
+                        <option defaultValue={nationality}>Choose...</option>
                         <option>Bangladeshi</option>
                     </select>
                 </div>
             </div>
             <div className="form-row mb-3 d-flex">
                 <div className="form-group col-md-6">
-                    <label htmlFor="email">National ID No.</label>
+                    <label htmlFor="nationalIdNumber">National ID No.</label>
                     <input
                         className="form-control"
                         type="text"
-                        id="email"
-                        name="email"
-                        value={email}
+                        id="nationalIdNumber"
+                        name="nationalIdNumber"
+                        value={nationalIdNumber}
                         onChange={handleChange}
                         placeholder="Enter National ID No."
                     />
                 </div>
                 <div className="form-group col-md-6">
-                    <label htmlFor="email">Passport No.</label>
+                    <label htmlFor="passportNumber">Passport No.</label>
                     <input
                         className="form-control"
                         type="text"
-                        id="email"
-                        name="email"
-                        value={email}
+                        id="passportNumber"
+                        name="passportNumber"
+                        value={passportNumber}
                         onChange={handleChange}
                         placeholder="Enter Passport No."
                     />
@@ -202,158 +221,61 @@ export default function StudentsPersonalInformations() {
             </div>
             <div className="form-row mb-3 d-flex">
                 <div className="form-group col-md-6">
-                    <label htmlFor="email">Guardian's Name</label>
+                    <label htmlFor="guardiansNameEN">Guardian's Name</label>
                     <input
                         className="form-control"
                         type="text"
-                        id="email"
-                        name="email"
-                        value={email}
+                        id="guardiansNameEN"
+                        name="guardiansNameEN"
+                        value={guardiansNameEN}
                         onChange={handleChange}
                         placeholder="Enter Guardian's Name"
                     />
                 </div>
                 <div className="form-group col-md-6">
-                    <label htmlFor="email">Relation to Guardian</label>
+                    <label htmlFor="relationToGuardian">Relation to Guardian</label>
                     <input
                         className="form-control"
                         type="text"
-                        id="email"
-                        name="email"
-                        value={email}
+                        id="relationToGuardian"
+                        name="relationToGuardian"
+                        value={relationToGuardian}
                         onChange={handleChange}
                         placeholder="Enter Relation to Guardian"
                     />
                 </div>
             </div>
             <div className="form-group mb-3">
-                <label htmlFor="inputState">Quota</label>
-                <select onChange={handleChange} name='state' value={state} id="inputState" className="form-control">
-                    <option defaultValue={state}>Choose...</option>
+                <label htmlFor="quota">Quota</label>
+                <select onChange={handleChange} name='quota' value={quota} id="quota" className="form-control">
+                    <option defaultValue={quota}>Choose...</option>
                     <option>Grand Daughter</option>
                     <option>Grand Son</option>
                     <option>Great Grand Daughter of Freedom Fighteer</option>
                     <option>Great Grand Son of Freedom Fighteer</option>
                 </select>
             </div>
-
-            <div className="form-row d-flex mb-3">
-                <div className="form-group col-md-6">
-                    <label htmlFor="first-name" className='d-block'>Religion (Tick)</label>
-                    <div className="form-check me-3">
-                        <input
-                            className="form-check-input"
-                            type="radio"
-                            id="gridCheck"
-                            name='gender'
-                            value='islam'
-                            onChange={handleChange}
-                        />
-                        <label className="form-check-label" htmlFor="gridCheck">Islam</label>
-                    </div>
-                    <div className="form-check me-3">
-                        <input
-                            className="form-check-input"
-                            type="radio"
-                            id="gridCheck"
-                            name='gender'
-                            value='hindu'
-                            onChange={handleChange}
-                        />
-                        <label className="form-check-label" htmlFor="gridCheck">Hindu</label>
-                    </div>
-                    <div className="form-check me-3">
-                        <input
-                            className="form-check-input"
-                            type="radio"
-                            id="gridCheck"
-                            name='gender'
-                            value='buddhist'
-                            onChange={handleChange}
-                        />
-                        <label className="form-check-label" htmlFor="gridCheck">Buddhist</label>
-                    </div>
-                    <div className="form-check me-3">
-                        <input
-                            className="form-check-input"
-                            type="radio"
-                            id="gridCheck"
-                            name='gender'
-                            value='christian'
-                            onChange={handleChange}
-                        />
-                        <label className="form-check-label" htmlFor="gridCheck">Christian</label>
-                    </div>
-                    <div className="form-check me-3">
-                        <input
-                            className="form-check-input"
-                            type="radio"
-                            id="gridCheck"
-                            name='gender'
-                            value='others'
-                            onChange={handleChange}
-                        />
-                        <label className="form-check-label" htmlFor="gridCheck">Others</label>
-                    </div>
-                </div>
-                <div className="form-group col-md-6">
-                    <label htmlFor="first-name" className='d-block'>(*) Merital Status (Tick)</label>
-                    <div className="form-check me-3">
-                        <input
-                            className="form-check-input"
-                            type="radio"
-                            id="gridCheck"
-                            name='gender'
-                            value='single'
-                            onChange={handleChange}
-                        />
-                        <label className="form-check-label" htmlFor="gridCheck">Single</label>
-                    </div>
-                    <div className="form-check me-3">
-                        <input
-                            className="form-check-input"
-                            type="radio"
-                            id="gridCheck"
-                            name='gender'
-                            value='married'
-                            onChange={handleChange}
-                        />
-                        <label className="form-check-label" htmlFor="gridCheck">Married</label>
-                    </div>
-                    <div className="form-check me-3">
-                        <input
-                            className="form-check-input"
-                            type="radio"
-                            id="gridCheck"
-                            name='gender'
-                            value='widow'
-                            onChange={handleChange}
-                        />
-                        <label className="form-check-label" htmlFor="gridCheck">Widow</label>
-                    </div>
-                    <div className="form-check me-3">
-                        <input
-                            className="form-check-input"
-                            type="radio"
-                            id="gridCheck"
-                            name='gender'
-                            value='divorced'
-                            onChange={handleChange}
-                        />
-                        <label className="form-check-label" htmlFor="gridCheck">Divorced</label>
-                    </div>
-                    <div className="form-check me-3">
-                        <input
-                            className="form-check-input"
-                            type="radio"
-                            id="gridCheck"
-                            name='gender'
-                            value='separated'
-                            onChange={handleChange}
-                        />
-                        <label className="form-check-label" htmlFor="gridCheck">Seprarated</label>
-                    </div>
-                </div>
+            <div className="form-group mb-3">
+                <label htmlFor="fullNameBN">Religion</label>
+                <input
+                    className="form-control"
+                    type="text"
+                    id="fullNameBN"
+                    name="fullNameBN"
+                    value={religion}
+                    onChange={handleChange}
+                    placeholder="islam / hindu / buddhist / christian / others" />
+            </div>
+            <div className="form-group mb-3">
+                <label htmlFor="fullNameBN">(*) Merital Status</label>
+                <input
+                    className="form-control"
+                    type="text"
+                    id="fullNameBN"
+                    name="fullNameBN"
+                    value={meritalStatus}
+                    onChange={handleChange}
+                    placeholder="single / married / widow / divorced / separated" />
             </div>
             <div className="form-row mb-3 d-flex">
                 <div className="form-group col-md-6">
@@ -369,13 +291,13 @@ export default function StudentsPersonalInformations() {
                     />
                 </div>
                 <div className="form-group col-md-6">
-                    <label htmlFor="email">Student's Mobile No.</label>
+                    <label htmlFor="mobile">Student's Mobile No.</label>
                     <input
                         className="form-control"
                         type="text"
-                        id="email"
-                        name="email"
-                        value={email}
+                        id="mobile"
+                        name="mobile"
+                        value={mobile}
                         onChange={handleChange}
                         placeholder="Enter Mobile No."
                     />
@@ -386,25 +308,25 @@ export default function StudentsPersonalInformations() {
 
             <div className="form-row mb-3 d-flex">
                 <div className="form-group col-md-6">
-                    <label htmlFor="email">Village/House/Road</label>
+                    <label htmlFor="preVillage">Village/House/Road</label>
                     <input
                         className="form-control"
                         type="text"
-                        id="email"
-                        name="email"
-                        value={email}
+                        id="preVillage"
+                        name="preVillage"
+                        value={preVillage}
                         onChange={handleChange}
                         placeholder="Enter Village"
                     />
                 </div>
                 <div className="form-group col-md-6">
-                    <label htmlFor="email">Division</label>
+                    <label htmlFor="preDivision">Division</label>
                     <input
                         className="form-control"
                         type="text"
-                        id="email"
-                        name="email"
-                        value={email}
+                        id="preDivision"
+                        name="preDivision"
+                        value={preDivision}
                         onChange={handleChange}
                         placeholder="Enter Division"
                     />
@@ -412,25 +334,25 @@ export default function StudentsPersonalInformations() {
             </div>
             <div className="form-row mb-3 d-flex">
                 <div className="form-group col-md-6">
-                    <label htmlFor="email">District</label>
+                    <label htmlFor="preDistrict">District</label>
                     <input
                         className="form-control"
                         type="text"
-                        id="email"
-                        name="email"
-                        value={email}
+                        id="preDistrict"
+                        name="preDistrict"
+                        value={preDistrict}
                         onChange={handleChange}
                         placeholder="Enter District"
                     />
                 </div>
                 <div className="form-group col-md-6">
-                    <label htmlFor="email">Thana/Upazilla</label>
+                    <label htmlFor="preThana">Thana/Upazilla</label>
                     <input
                         className="form-control"
                         type="text"
-                        id="email"
-                        name="email"
-                        value={email}
+                        id="preThana"
+                        name="preThana"
+                        value={preThana}
                         onChange={handleChange}
                         placeholder="Enter Upazilla"
                     />
@@ -438,25 +360,25 @@ export default function StudentsPersonalInformations() {
             </div>
             <div className="form-row mb-3 d-flex">
                 <div className="form-group col-md-6">
-                    <label htmlFor="email">Post Office</label>
+                    <label htmlFor="prePostOffice">Post Office</label>
                     <input
                         className="form-control"
                         type="text"
-                        id="email"
-                        name="email"
-                        value={email}
+                        id="prePostOffice"
+                        name="prePostOffice"
+                        value={prePostOffice}
                         onChange={handleChange}
                         placeholder="Enter Post Office"
                     />
                 </div>
                 <div className="form-group col-md-6">
-                    <label htmlFor="email">Postal Code</label>
+                    <label htmlFor="prePostalCode">Postal Code</label>
                     <input
                         className="form-control"
                         type="text"
-                        id="email"
-                        name="email"
-                        value={email}
+                        id="prePostalCode"
+                        name="prePostalCode"
+                        value={prePostalCode}
                         onChange={handleChange}
                         placeholder="Enter Postal Code"
                     />
@@ -467,25 +389,25 @@ export default function StudentsPersonalInformations() {
 
             <div className="form-row mb-3 d-flex">
                 <div className="form-group col-md-6">
-                    <label htmlFor="email">Village/House/Road</label>
+                    <label htmlFor="perVillage">Village/House/Road</label>
                     <input
                         className="form-control"
                         type="text"
-                        id="email"
-                        name="email"
-                        value={email}
+                        id="perVillage"
+                        name="perVillage"
+                        value={perVillage}
                         onChange={handleChange}
                         placeholder="Enter Village"
                     />
                 </div>
                 <div className="form-group col-md-6">
-                    <label htmlFor="email">Division</label>
+                    <label htmlFor="perDivision">Division</label>
                     <input
                         className="form-control"
                         type="text"
-                        id="email"
-                        name="email"
-                        value={email}
+                        id="perDivision"
+                        name="perDivision"
+                        value={perDivision}
                         onChange={handleChange}
                         placeholder="Enter Division"
                     />
@@ -493,25 +415,25 @@ export default function StudentsPersonalInformations() {
             </div>
             <div className="form-row mb-3 d-flex">
                 <div className="form-group col-md-6">
-                    <label htmlFor="email">District</label>
+                    <label htmlFor="perDistrict">District</label>
                     <input
                         className="form-control"
                         type="text"
-                        id="email"
-                        name="email"
-                        value={email}
+                        id="perDistrict"
+                        name="perDistrict"
+                        value={perDistrict}
                         onChange={handleChange}
                         placeholder="Enter District"
                     />
                 </div>
                 <div className="form-group col-md-6">
-                    <label htmlFor="email">Thana/Upazilla</label>
+                    <label htmlFor="perThana">Thana/Upazilla</label>
                     <input
                         className="form-control"
                         type="text"
-                        id="email"
-                        name="email"
-                        value={email}
+                        id="perThana"
+                        name="perThana"
+                        value={perThana}
                         onChange={handleChange}
                         placeholder="Enter Upazilla"
                     />
@@ -519,361 +441,63 @@ export default function StudentsPersonalInformations() {
             </div>
             <div className="form-row mb-3 d-flex">
                 <div className="form-group col-md-6">
-                    <label htmlFor="email">Post Office</label>
+                    <label htmlFor="perPostOffice">Post Office</label>
                     <input
                         className="form-control"
                         type="text"
-                        id="email"
-                        name="email"
-                        value={email}
+                        id="perPostOffice"
+                        name="perPostOffice"
+                        value={perPostOffice}
                         onChange={handleChange}
                         placeholder="Enter Post Office"
                     />
                 </div>
                 <div className="form-group col-md-6">
-                    <label htmlFor="email">Postal Code</label>
+                    <label htmlFor="perPostalCode">Postal Code</label>
                     <input
                         className="form-control"
                         type="text"
-                        id="email"
-                        name="email"
-                        value={email}
+                        id="perPostalCode"
+                        name="perPostalCode"
+                        value={perPostalCode}
                         onChange={handleChange}
                         placeholder="Enter Postal Code"
                     />
                 </div>
             </div>
 
-            <h3>Educational Qualification</h3>
-
-            <div className="form-group mb-3">
-                <label htmlFor="email">SSC/Equivalent</label>
-                <input
-                    className="form-control"
-                    type="text"
-                    id="email"
-                    name="email"
-                    value={email}
-                    onChange={handleChange}
-                    placeholder="Enter College/University/Institution Name"
-                />
-            </div>
-            <div className="form-row mb-3 d-flex">
-                <div className="form-group col-md-6">
-                    <label htmlFor="email">GPA/Class</label>
-                    <input
-                        className="form-control"
-                        type="text"
-                        id="email"
-                        name="email"
-                        value={email}
-                        onChange={handleChange}
-                        placeholder="GPA or Class"
-                    />
-                </div>
-                <div className="form-group col-md-6">
-                    <label htmlFor="email">Year</label>
-                    <input
-                        className="form-control"
-                        type="text"
-                        id="email"
-                        name="email"
-                        value={email}
-                        onChange={handleChange}
-                        placeholder="Passed Year"
-                    />
-                </div>
-            </div>
-            <div className="form-row mb-3 d-flex">
-                <div className="form-group col-md-6">
-                    <label htmlFor="email">Duration</label>
-                    <input
-                        className="form-control"
-                        type="text"
-                        id="email"
-                        name="email"
-                        value={email}
-                        onChange={handleChange}
-                        placeholder="e.g.2015-2018"
-                    />
-                </div>
-                <div className="form-group col-md-6">
-                    <label htmlFor="email">Country</label>
-                    <input
-                        className="form-control"
-                        type="text"
-                        id="email"
-                        name="email"
-                        value={email}
-                        onChange={handleChange}
-                        placeholder="Country Name"
-                    />
-                </div>
-            </div>
-
-            <div className="form-group mb-3">
-                <label htmlFor="email">HSC/Equivalent</label>
-                <input
-                    className="form-control"
-                    type="text"
-                    id="email"
-                    name="email"
-                    value={email}
-                    onChange={handleChange}
-                    placeholder="Enter College/University/Institution Name"
-                />
-            </div>
-            <div className="form-row mb-3 d-flex">
-                <div className="form-group col-md-6">
-                    <label htmlFor="email">GPA/Class</label>
-                    <input
-                        className="form-control"
-                        type="text"
-                        id="email"
-                        name="email"
-                        value={email}
-                        onChange={handleChange}
-                        placeholder="GPA or Class"
-                    />
-                </div>
-                <div className="form-group col-md-6">
-                    <label htmlFor="email">Year</label>
-                    <input
-                        className="form-control"
-                        type="text"
-                        id="email"
-                        name="email"
-                        value={email}
-                        onChange={handleChange}
-                        placeholder="Passed Year"
-                    />
-                </div>
-            </div>
-            <div className="form-row mb-3 d-flex">
-                <div className="form-group col-md-6">
-                    <label htmlFor="email">Duration</label>
-                    <input
-                        className="form-control"
-                        type="text"
-                        id="email"
-                        name="email"
-                        value={email}
-                        onChange={handleChange}
-                        placeholder="e.g.2015-2018"
-                    />
-                </div>
-                <div className="form-group col-md-6">
-                    <label htmlFor="email">Country</label>
-                    <input
-                        className="form-control"
-                        type="text"
-                        id="email"
-                        name="email"
-                        value={email}
-                        onChange={handleChange}
-                        placeholder="Country Name"
-                    />
-                </div>
-            </div>
-
-            <div className="form-group mb-3">
-                <label htmlFor="email">Bechelor's Degree</label>
-                <input
-                    className="form-control"
-                    type="text"
-                    id="email"
-                    name="email"
-                    value={email}
-                    onChange={handleChange}
-                    placeholder="Enter College/University/Institution Name"
-                />
-            </div>
-            <div className="form-row mb-3 d-flex">
-                <div className="form-group col-md-6">
-                    <label htmlFor="email">GPA/Class</label>
-                    <input
-                        className="form-control"
-                        type="text"
-                        id="email"
-                        name="email"
-                        value={email}
-                        onChange={handleChange}
-                        placeholder="GPA or Class"
-                    />
-                </div>
-                <div className="form-group col-md-6">
-                    <label htmlFor="email">Year</label>
-                    <input
-                        className="form-control"
-                        type="text"
-                        id="email"
-                        name="email"
-                        value={email}
-                        onChange={handleChange}
-                        placeholder="Passed Year"
-                    />
-                </div>
-            </div>
-            <div className="form-row mb-3 d-flex">
-                <div className="form-group col-md-6">
-                    <label htmlFor="email">Duration</label>
-                    <input
-                        className="form-control"
-                        type="text"
-                        id="email"
-                        name="email"
-                        value={email}
-                        onChange={handleChange}
-                        placeholder="e.g.2015-2018"
-                    />
-                </div>
-                <div className="form-group col-md-6">
-                    <label htmlFor="email">Country</label>
-                    <input
-                        className="form-control"
-                        type="text"
-                        id="email"
-                        name="email"
-                        value={email}
-                        onChange={handleChange}
-                        placeholder="Country Name"
-                    />
-                </div>
-            </div>
-
-            <div className="form-group mb-3">
-                <label htmlFor="email">Masters</label>
-                <input
-                    className="form-control"
-                    type="text"
-                    id="email"
-                    name="email"
-                    value={email}
-                    onChange={handleChange}
-                    placeholder="Enter College/University/Institution Name"
-                />
-            </div>
-            <div className="form-row mb-3 d-flex">
-                <div className="form-group col-md-6">
-                    <label htmlFor="email">GPA/Class</label>
-                    <input
-                        className="form-control"
-                        type="text"
-                        id="email"
-                        name="email"
-                        value={email}
-                        onChange={handleChange}
-                        placeholder="GPA or Class"
-                    />
-                </div>
-                <div className="form-group col-md-6">
-                    <label htmlFor="email">Year</label>
-                    <input
-                        className="form-control"
-                        type="text"
-                        id="email"
-                        name="email"
-                        value={email}
-                        onChange={handleChange}
-                        placeholder="Passed Year"
-                    />
-                </div>
-            </div>
-            <div className="form-row mb-3 d-flex">
-                <div className="form-group col-md-6">
-                    <label htmlFor="email">Duration</label>
-                    <input
-                        className="form-control"
-                        type="text"
-                        id="email"
-                        name="email"
-                        value={email}
-                        onChange={handleChange}
-                        placeholder="e.g.2015-2018"
-                    />
-                </div>
-                <div className="form-group col-md-6">
-                    <label htmlFor="email">Country</label>
-                    <input
-                        className="form-control"
-                        type="text"
-                        id="email"
-                        name="email"
-                        value={email}
-                        onChange={handleChange}
-                        placeholder="Country Name"
-                    />
-                </div>
-            </div>
-
-            <div className="form-group mb-3">
-                <label htmlFor="email">Mphil/Doctorate</label>
-                <input
-                    className="form-control"
-                    type="text"
-                    id="email"
-                    name="email"
-                    value={email}
-                    onChange={handleChange}
-                    placeholder="Enter College/University/Institution Name"
-                />
-            </div>
-            <div className="form-row mb-3 d-flex">
-                <div className="form-group col-md-6">
-                    <label htmlFor="email">GPA/Class</label>
-                    <input
-                        className="form-control"
-                        type="text"
-                        id="email"
-                        name="email"
-                        value={email}
-                        onChange={handleChange}
-                        placeholder="GPA or Class"
-                    />
-                </div>
-                <div className="form-group col-md-6">
-                    <label htmlFor="email">Year</label>
-                    <input
-                        className="form-control"
-                        type="text"
-                        id="email"
-                        name="email"
-                        value={email}
-                        onChange={handleChange}
-                        placeholder="Passed Year"
-                    />
-                </div>
-            </div>
-            <div className="form-row mb-3 d-flex">
-                <div className="form-group col-md-6">
-                    <label htmlFor="email">Duration</label>
-                    <input
-                        className="form-control"
-                        type="text"
-                        id="email"
-                        name="email"
-                        value={email}
-                        onChange={handleChange}
-                        placeholder="e.g.2015-2018"
-                    />
-                </div>
-                <div className="form-group col-md-6">
-                    <label htmlFor="email">Country</label>
-                    <input
-                        className="form-control"
-                        type="text"
-                        id="email"
-                        name="email"
-                        value={email}
-                        onChange={handleChange}
-                        placeholder="Country Name"
-                    />
-                </div>
-            </div>
-
             <small>আমি এই মর্মে অঙ্গিকার করছি যে, উপরে বর্ণিত আমার দেয়া বিবরণ সম্পূর্ণ সত্য। আমি আরো অঙ্গিকার করছি যে, অত্র প্রতিষ্ঠানের সকল নিয়ম-কানুন মেনে চলবো। প্রতিষ্ঠান বিরোধী কোন প্রকার কার্যকলাপ করবনা। প্রতিষ্ঠানের স্বার্থবিরোধী বা রাষ্ট্রীয় আইন-শৃঙ্খলা বিরোধী কোন প্রকার কার্যকলাপ করলে কর্তৃপক্ষ আমার দেয়া ভর্তি ও অন্যান্য ফিস বাজেয়াপ্তপূর্বক আমাকে অত্র প্রতিষ্ঠান হতে বহিস্কার করতে পারবেন। আমি প্রতিষ্ঠানে ভর্তি ফিস বাবদ প্রদেয় টাকা কোন প্রকার অজুহাতে বা কোন অবস্থায় ফেরত নিতে পারবনা।</small>
 
-            <button type="submit" className="btn btn-primary mx-auto d-block">ভর্তি করুন</button>
+            <div className="text-center d-block">
+                <button
+                    type="submit"
+                    className="btn btn-success me-3 text-capitalize"
+                    onClick={() => navigate('/office/register/educationalInfo')}
+                >Educational
+                </button>
+                <button
+                    type="submit"
+                    className="btn btn-warning me-3"
+                >ভর্তি করুন
+                </button>
+                <button
+                    type="submit"
+                    className="btn btn-info text-capitalize"
+                    onClick={() => navigate('/office/register/officialInfo')}
+                >Official
+                </button>
+            </div>
+            {/* 
+            {students.map((student) => {
+                const id = new Date().getTime().toString()
+
+                return (
+                    <div key={id}>
+                        <h3>Name EN : {student.fullNameEN}</h3>
+                        <p>Student ID : {id}</p>
+                    </div>
+                )
+            })} */}
         </form>
     )
 }
